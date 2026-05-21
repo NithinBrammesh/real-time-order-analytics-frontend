@@ -1,0 +1,289 @@
+/* =========================
+   RECENT ORDERS CARD
+========================= */
+
+.recentOrdersCard{
+
+  background:#ffffff;
+
+  border-radius:20px;
+
+  padding:24px;
+
+  margin-bottom:28px;
+
+  box-shadow:
+    0 6px 24px rgba(0,0,0,0.05);
+
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.recentOrdersHeader{
+
+  display:flex;
+
+  justify-content:space-between;
+
+  align-items:center;
+
+  margin-bottom:18px;
+
+}
+
+.recentOrdersHeader h3{
+
+  font-size:24px;
+
+  font-weight:700;
+
+  color:#111827;
+
+}
+
+/* LIVE BADGE */
+
+.liveBadge{
+
+  background:#dcfce7;
+
+  color:#16a34a;
+
+  padding:6px 14px;
+
+  border-radius:30px;
+
+  font-size:12px;
+
+  font-weight:700;
+
+}
+
+/* =========================
+   TABLE
+========================= */
+
+.recentOrdersTable{
+
+  width:100%;
+
+  border-collapse:collapse;
+
+  overflow:hidden;
+
+  border-radius:14px;
+
+}
+
+/* HEADER */
+
+.recentOrdersTable thead{
+
+  background:
+    linear-gradient(
+      90deg,
+      #7c3aed,
+      #9333ea
+    );
+
+  color:white;
+
+}
+
+.recentOrdersTable th{
+
+  padding:16px;
+
+  text-align:left;
+
+  font-size:14px;
+
+  font-weight:700;
+
+}
+
+/* BODY */
+
+.recentOrdersTable td{
+
+  padding:16px;
+
+  border-bottom:
+    1px solid #f1f5f9;
+
+  font-size:14px;
+
+  color:#1e293b;
+
+}
+
+/* ROW DESIGN */
+
+.recentOrdersTable tbody tr:nth-child(even){
+
+  background:#f8fafc;
+
+}
+
+.recentOrdersTable tbody tr:hover{
+
+  background:#eef2ff;
+
+}
+
+/* ORDER ID */
+
+.orderId{
+
+  font-weight:600;
+
+  color:#334155;
+
+}
+
+/* AMOUNT */
+
+.amount{
+
+  font-weight:700;
+
+  color:#111827;
+
+}
+
+/* =========================
+   SEVERITY
+========================= */
+
+.severityBadge{
+
+  padding:6px 12px;
+
+  border-radius:30px;
+
+  font-size:12px;
+
+  font-weight:700;
+
+}
+
+/* NORMAL */
+
+.severityBadge.NORMAL{
+
+  background:#dcfce7;
+
+  color:#15803d;
+
+}
+
+/* MEDIUM */
+
+.severityBadge.MEDIUM{
+
+  background:#fef3c7;
+
+  color:#b45309;
+
+}
+
+/* HIGH */
+
+.severityBadge.HIGH{
+
+  background:#ffedd5;
+
+  color:#ea580c;
+
+}
+
+/* CRITICAL */
+
+.severityBadge.CRITICAL{
+
+  background:#fee2e2;
+
+  color:#dc2626;
+
+}
+
+/* =========================
+   PAGINATION
+========================= */
+
+.pagination{
+
+  display:flex;
+
+  justify-content:center;
+
+  align-items:center;
+
+  gap:10px;
+
+  margin-top:24px;
+
+}
+
+.pageBtn{
+
+  border:none;
+
+  width:38px;
+
+  height:38px;
+
+  border-radius:10px;
+
+  background:#f1f5f9;
+
+  color:#334155;
+
+  font-weight:700;
+
+  cursor:pointer;
+
+  transition:0.2s ease;
+
+}
+
+.pageBtn:hover{
+
+  background:#ddd6fe;
+
+  color:#6d28d9;
+
+}
+
+.activePage{
+
+  background:#7c3aed;
+
+  color:white;
+
+  box-shadow:
+    0 4px 12px rgba(124,58,237,0.3);
+
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:900px){
+
+  .recentOrdersCard{
+
+    overflow-x:auto;
+
+  }
+
+  .recentOrdersTable{
+
+    min-width:750px;
+
+  }
+
+}

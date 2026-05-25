@@ -1,22 +1,4 @@
-export default function Metrics({ orders }) {
-
-  const totalRevenue = orders.reduce(
-    (sum, o) => sum + Number(o.total_amount || 0),
-    0
-  );
-
-  const totalOrders = orders.reduce(
-    (sum, o) => sum + Number(o.count || 0),
-    0
-  );
-
-  const avg = totalOrders
-    ? (totalRevenue / totalOrders).toFixed(0)
-    : 0;
-
-  const topCity = orders[0]?.city || "-";
-
-  const cityCount = orders.length;
+export default function Metrics({ metrics }) {
 
   return (
 
@@ -24,29 +6,48 @@ export default function Metrics({ orders }) {
 
       <div className="metricCard">
         <h4>Total Orders</h4>
-        <h2>{totalOrders}</h2>
+        <h2>
+          {metrics.total_orders || 0}
+        </h2>
       </div>
 
       <div className="metricCard">
         <h4>Total Revenue</h4>
-        <h2>₹ {totalRevenue}</h2>
+        <h2>
+          ₹ {metrics.total_revenue || 0}
+        </h2>
       </div>
 
       <div className="metricCard">
         <h4>Average Order</h4>
-        <h2>₹ {avg}</h2>
+        <h2>
+          ₹ {metrics.average_order || 0}
+        </h2>
       </div>
 
       <div className="metricCard">
-        <h4>Top Revenue City</h4>
-        <h2>{topCity}</h2>
+        <h4>High Orders</h4>
+        <h2>
+          {metrics.high_orders || 0}
+        </h2>
+      </div>
+
+      <div className="metricCard">
+        <h4>Critical Orders</h4>
+        <h2>
+          {metrics.critical_orders || 0}
+        </h2>
       </div>
 
       <div className="metricCard">
         <h4>Total Cities</h4>
-        <h2>{cityCount}</h2>
+        <h2>
+          {metrics.total_cities || 0}
+        </h2>
       </div>
 
     </div>
+
   );
+
 }

@@ -9,6 +9,7 @@ import Metrics from "./components/Metrics";
 import CityBarChart from "./components/CityBarChart";
 import AlertsPanel from "./components/AlertsPanel";
 import RecentOrders from "./components/RecentOrders";
+import API_BASE_URL from "./config";
 
 export default function OrdersDashboard() {
 
@@ -29,8 +30,9 @@ export default function OrdersDashboard() {
 
   const [lastUpdated, setLastUpdated] = useState("");
 
-  const [recentOrders, setRecentOrders]
-= useState([]);
+  const [recentOrders, setRecentOrders] = useState([]);
+
+  const [metrics, setMetrics] = useState({});
 
   // =========================
   // LOAD DATA FROM API
@@ -39,7 +41,7 @@ export default function OrdersDashboard() {
 
     const loadData = () => {
 
-      fetch("http://localhost:5000/alerts")
+      fetch(`${API_BASE_URL}/alerts`)
 
         .then(res => res.json())
 
@@ -70,7 +72,19 @@ export default function OrdersDashboard() {
 
         });
 
-        fetch("http://localhost:5000/recent-orders")
+        fetch(`${API_BASE_URL}/metrics`)
+
+        .then(res => res.json())
+
+        .then(data => {
+
+          setMetrics(
+            data.metrics || {}
+          );
+
+        });
+
+        fetch(`${API_BASE_URL}/recent-orders`)
 
         .then(res => res.json())
 
@@ -90,9 +104,7 @@ export default function OrdersDashboard() {
     // =========================
 // SOCKET CONNECTION
 // =========================
-const socket = io(
-  "http://localhost:5000"
-);
+const socket = io(API_BASE_URL);
 
 // LIVE ALERT LISTENER
 socket.on(
@@ -235,7 +247,7 @@ socket.on(
       </div>
 
       {/* METRICS */}
-      <Metrics orders={filteredOrders} />
+      <Metrics metrics={metrics} />
 
       <AlertsPanel
       orders={filteredOrders}
